@@ -3,7 +3,7 @@ category = "dev"
 description = "Disable App Nap on OS X 10.9"
 marker = "python_version >= \"3.3\" and sys_platform == \"darwin\""
 name = "appnope"
-optional = true
+optional = false
 python-versions = "*"
 version = "0.1.0"
 
@@ -12,7 +12,7 @@ category = "dev"
 description = "Specifications for callback functions passed in to an API"
 marker = "python_version >= \"3.3\""
 name = "backcall"
-optional = true
+optional = false
 python-versions = "*"
 version = "0.1.0"
 
@@ -21,7 +21,7 @@ category = "dev"
 description = "Cross-platform colored terminal text."
 marker = "python_version >= \"3.3\" and sys_platform == \"win32\""
 name = "colorama"
-optional = true
+optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "0.4.1"
 
@@ -30,7 +30,7 @@ category = "dev"
 description = "Better living through Python with decorators"
 marker = "python_version >= \"3.3\""
 name = "decorator"
-optional = true
+optional = false
 python-versions = "*"
 version = "4.3.0"
 
@@ -38,7 +38,7 @@ version = "4.3.0"
 category = "dev"
 description = "IPython-enabled pdb"
 name = "ipdb"
-optional = true
+optional = false
 python-versions = ">=2.7"
 version = "0.11"
 
@@ -54,7 +54,7 @@ category = "dev"
 description = "IPython: Productive Interactive Computing"
 marker = "python_version >= \"3.3\""
 name = "ipython"
-optional = true
+optional = false
 python-versions = ">=3.5"
 version = "7.2.0"
 
@@ -76,7 +76,7 @@ category = "dev"
 description = "Vestigial utilities from IPython"
 marker = "python_version >= \"3.3\""
 name = "ipython-genutils"
-optional = true
+optional = false
 python-versions = "*"
 version = "0.2.0"
 
@@ -85,7 +85,7 @@ category = "dev"
 description = "An autocompletion tool for Python that can be used for text editors."
 marker = "python_version >= \"3.3\""
 name = "jedi"
-optional = true
+optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "0.13.1"
 
@@ -108,7 +108,7 @@ category = "dev"
 description = "A Python Parser"
 marker = "python_version >= \"3.3\""
 name = "parso"
-optional = true
+optional = false
 python-versions = "*"
 version = "0.3.1"
 
@@ -117,7 +117,7 @@ category = "dev"
 description = "Pexpect allows easy control of interactive console applications."
 marker = "python_version >= \"3.3\" and sys_platform != \"win32\""
 name = "pexpect"
-optional = true
+optional = false
 python-versions = "*"
 version = "4.6.0"
 
@@ -129,7 +129,7 @@ category = "dev"
 description = "Tiny 'shelve'-like database with concurrency support"
 marker = "python_version >= \"3.3\""
 name = "pickleshare"
-optional = true
+optional = false
 python-versions = "*"
 version = "0.7.5"
 
@@ -138,7 +138,7 @@ category = "dev"
 description = "Library for building powerful interactive command lines in Python"
 marker = "python_version >= \"3.3\""
 name = "prompt-toolkit"
-optional = true
+optional = false
 python-versions = "*"
 version = "2.0.7"
 
@@ -151,7 +151,7 @@ category = "dev"
 description = "Run a subprocess in a pseudo terminal"
 marker = "python_version >= \"3.3\" and sys_platform != \"win32\""
 name = "ptyprocess"
-optional = true
+optional = false
 python-versions = "*"
 version = "0.6.0"
 
@@ -160,7 +160,7 @@ category = "dev"
 description = "Pygments is a syntax highlighting package written in Python."
 marker = "python_version >= \"3.3\""
 name = "pygments"
-optional = true
+optional = false
 python-versions = "*"
 version = "2.3.0"
 
@@ -169,7 +169,7 @@ category = "dev"
 description = "Python 2 and 3 compatibility utilities"
 marker = "python_version >= \"3.3\""
 name = "six"
-optional = true
+optional = false
 python-versions = "*"
 version = "1.11.0"
 
@@ -178,7 +178,7 @@ category = "dev"
 description = "Traitlets Python config system"
 marker = "python_version >= \"3.3\""
 name = "traitlets"
-optional = true
+optional = false
 python-versions = "*"
 version = "4.3.2"
 
@@ -200,12 +200,12 @@ category = "dev"
 description = "Measures number of Terminal column cells of wide-character codes"
 marker = "python_version >= \"3.3\""
 name = "wcwidth"
-optional = true
+optional = false
 python-versions = "*"
 version = "0.1.7"
 
 [metadata]
-content-hash = "5faf755be8aee9f3fbe45c6ce8910545cf8aae8d8ceb2d6d6e910af740e065b8"
+content-hash = "dfc8deff7bc7cf3669fd2bfe692b2d45b6387dc61007b101ee1f090d55720cde"
 python-versions = "^3.6"
 
 [metadata.hashes]
