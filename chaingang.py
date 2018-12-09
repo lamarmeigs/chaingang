@@ -13,8 +13,11 @@ def read_corpus(path, ignore_pattern=None):
     return corpus
 
 
-def build_model(corpora, weights=None):
-    models = [markovify.Text(corpus, retain_original=False) for corpus in corpora]
+def build_model(corpora, state_size=3, weights=None):
+    models = [
+        markovify.Text(corpus, state_size=state_size, retain_original=False)
+        for corpus in corpora
+    ]
     model = markovify.combine(models, weights)
     return model
 
@@ -38,7 +41,7 @@ def create_model(args, parser):
     corpora = (read_corpus(path, args.pattern) for path in args.corpora)
     if args.weights and len(args.weights) != len(args.corpora):
         parser.error('Number of weights must match number of corpora')
-    model = build_model(corpora, args.weights)
+    model = build_model(corpora, args.size, args.weights)
     write_model(model, path=args.outfile)
 
 
@@ -75,6 +78,14 @@ if __name__ == '__main__':
         nargs='*',
         type=int,
         help='Relative weights to apply to each corpus',
+    )
+    model_parser.add_argument(
+        '-s',
+        '--state-size',
+        dest='size',
+        type=int,
+        default=3,
+        help='State size to use when parsing corpora',
     )
     model_parser.add_argument(
         '-d',
