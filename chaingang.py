@@ -31,8 +31,14 @@ def write_model(model, path=None):
         sys.stdout.write(serialized_model)
 
 
-def load_model(path):
-    pass
+def load_model(path=None):
+    if path:
+        with open(path) as f:
+            serialized_model = f.read()
+    else:
+        serialized_model = sys.stdin.read()
+    model = markovify.Text.from_json(serialized_model)
+    return model
 
 
 def create_model(args, parser):
@@ -47,7 +53,13 @@ def create_model(args, parser):
 
 def generate_sentences(args, parser):
     """Generate sentences from models in the given command-line arguments."""
-    pass
+    if args.models:
+        models = [load_model(path) for path in args.models]
+        model = markovify.combine(models)
+    else:
+        model = load_model()
+    for _ in range(args.sentences):
+        print(model.make_sentence())
 
 
 def _compile_regex(pattern):
@@ -112,7 +124,9 @@ if __name__ == '__main__':
     generate_parser.add_argument(
         '-n',
         '--num-sentences',
+        dest='sentences',
         type=int,
+        default=3,
         help='Number of setences to generate'
     )
 
