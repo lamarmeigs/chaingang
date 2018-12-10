@@ -5,9 +5,12 @@ import sys
 import markovify
 
 
-def read_corpus(path, ignore_pattern=None):
-    with open(path) as f:
-        corpus = f.read()
+def read_corpus(path=None, ignore_pattern=None):
+    if path:
+        with open(path) as f:
+            corpus = f.read()
+    else:
+        corpus = sys.stdin.read()
     if ignore_pattern:
         corpus = re.sub(ignore_pattern, '', corpus)
     return corpus
@@ -28,7 +31,7 @@ def write_model(model, path=None):
         with open(path, 'w') as f:
             f.write(serialized_model)
     else:
-        sys.stdout.write(serialized_model)
+        sys.stdout.write(serialized_model + '\n')
 
 
 def load_model(path=None):
@@ -43,8 +46,11 @@ def load_model(path=None):
 
 def create_model(args, parser):
     """Create a new Markov model from the given command-line arguments."""
-    # TODO: allow command to read from stdin
-    corpora = (read_corpus(path, args.pattern) for path in args.corpora)
+    if args.corpora:
+        corpora = (read_corpus(path, args.pattern) for path in args.corpora)
+    else:
+        corpora = (read_corpus(ignore_pattern=args.pattern),)
+
     if args.weights and len(args.weights) != len(args.corpora):
         parser.error('Number of weights must match number of corpora')
     model = build_model(corpora, args.size, args.weights)
@@ -81,7 +87,6 @@ if __name__ == '__main__':
         '-c',
         '--corpora',
         nargs='+',
-        required=True,
         help='Path to files containing the corpora to model',
     )
     model_parser.add_argument(
